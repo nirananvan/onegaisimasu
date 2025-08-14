@@ -8,6 +8,31 @@
   </div>
 </template>
 
+<script>
+import axios from 'axios';
+
+export default {
+    data() {
+    return {
+      books:[],
+       message: '',
+       name:'',
+       users:[]
+  };
+},
+  mounted() {
+    axios.get('https://m3h-sasaki-0806.azurewebsites.net/api/SELECT?')
+      .then(response => {
+        this.books = response.data;
+      })
+      .catch(error => {
+        console.error('データ取得に失敗しました:', error);
+      });
+  }
+};
+console.log(response.data.name)
+</script>
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
