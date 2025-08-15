@@ -37,17 +37,19 @@ new Vue({
       }
       
       //POSTメソッドで送るパラメーターを作成
-      const param = {
-        ID : this.ID,
-        Name : this.Name,
-        Author : this.Author,
-        Category : this.Category,
-        Price : this.Price
-      };
+      // const param = {
+        // ID : this.ID,
+        // Name : this.Name,
+        // Author : this.Author,
+        // Category : this.Category,
+        // Price : this.Price
+      // };
+
       
       //INSERT用のAPIを呼び出し
-      const response = await axios.post('https://m3h-sasaki-0806.azurewebsites.net/api/INSERT?',param);
-      
+      // const response = await axios.get('https://m3h-sasaki-0806.azurewebsites.net/api/INSERT?',param);
+       const response = await axios.get('https://m3h-sasaki-0806.azurewebsites.net/api/INSERT?ID=${this.ID}&Name=${this.Name}&Author=${this.Author}&Category=${this.Category}&Price=${this.Price}');
+
       //結果をコンソールに出力
       console.log(response.data);
 
